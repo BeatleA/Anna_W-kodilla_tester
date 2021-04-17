@@ -33,7 +33,7 @@ public class RandomNumbers {
    }
 
     private boolean isMaxValue(int value){
-        if (maxRandomValue == -1 || maxRandomValue < value) {
+        if (maxRandomValue < value) {
             return true;
         } else {
             return false;
