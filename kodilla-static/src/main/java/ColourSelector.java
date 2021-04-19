@@ -12,31 +12,22 @@ public class ColourSelector {
 
     public Colour selectColour() {
         String userSelected = UserDialogs.getColour();
-        Colour chosenColour;
         switch (userSelected) {
             case "R":
-                chosenColour = Colour.RED;
-                break;
+                return Colour.RED;
             case "G":
-                chosenColour = Colour.GREEN;
-                break;
+                return Colour.GREEN;
             case "B":
-                chosenColour = Colour.BLUE;
-                break;
+                return Colour.BLUE;
             case "Y":
-                chosenColour = Colour.YELLOW;
-                break;
+                return Colour.YELLOW;
             case "O":
-                chosenColour = Colour.ORANGE;
-                break;
+                return Colour.ORANGE;
             case "P":
-                chosenColour = Colour.PINK;
-                break;
+                return Colour.PINK;
             case "W":
-                chosenColour = Colour.WHITE;
-                break;
-            default: chosenColour = Colour.BLACK;
+                return Colour.WHITE;
+            default: return Colour.BLACK;
         }
-        return chosenColour;
     }
 }
