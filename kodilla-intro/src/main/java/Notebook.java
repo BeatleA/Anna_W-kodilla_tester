@@ -34,12 +34,26 @@ public class Notebook {
     }
 
     public void checkPriceByYear() {
-        if ((this.year < 2015 && this.price < 1000) || (this.year >= 2015 && this.price >= 1000 && this.price < 2000)) {
+        if (isGoodValue()) {
             System.out.println("The price is good for the age of the notebook.");
-        } else if (this.year < 2010 || this.price >= 2000) {
-            System.out.println("The notebook is too expensive.");
-        } else {
+        } else if (isCheap()) {
             System.out.println("This notebook is cheap for its age.");
+        } else {
+            System.out.println("The notebook is too expensive.");
         }
+    }
+
+    private Boolean isGoodValue(){
+        if (price < 1000){
+            return year < 2015;
+        } else if (price < 2000) {
+            return year >=2015;
+        } else {
+            return false;
+        }
+    }
+
+    private Boolean isCheap(){
+        return (year >= 2015 && price<1000);
     }
 }
