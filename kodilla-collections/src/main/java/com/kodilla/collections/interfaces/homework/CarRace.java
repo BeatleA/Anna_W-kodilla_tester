@@ -4,13 +4,13 @@ import com.kodilla.collections.interfaces.Shape;
 
 public class CarRace {
     public static void main(String[] args) {
-        Mercedes mercedes = new Mercedes(5);
+        Car mercedes = new Mercedes(5);
         doRace(mercedes);
 
-        Toyota toyota = new Toyota(5);
+        Car toyota = new Toyota(5);
         doRace(toyota);
 
-        Ford ford = new Ford(5);
+        Car ford = new Ford(5);
         doRace(ford);
     }
 
