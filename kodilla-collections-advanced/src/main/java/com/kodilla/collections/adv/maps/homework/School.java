@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
-    String name;
-    List<Integer> classSizes = new ArrayList<>();
+    private String name;
+    private List<Integer> classSizes = new ArrayList<>();
 
     public School(String name, int... classSizes) {
         this.name = name;
