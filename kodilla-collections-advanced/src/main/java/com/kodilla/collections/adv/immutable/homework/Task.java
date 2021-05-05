@@ -4,9 +4,13 @@ public final class Task {
     private final String title;
     private final int duration;
 
-    public Task(String title, int duration) {
+    private Task(String title, int duration) {
         this.title = title;
         this.duration = duration;
+    }
+
+    public static Task of(String title, int duration){
+        return new Task(title,duration);
     }
 
     public final String getTitle() {
