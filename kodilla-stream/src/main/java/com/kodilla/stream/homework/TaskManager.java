@@ -9,7 +9,7 @@ public class TaskManager {
         List<LocalDate> currentDeadlines = TaskRepository.getTasks()
                 .stream()
                 .filter(d -> (d.getDeadline().isAfter(LocalDate.now().minusDays(1))))
-                .map(d -> d.getDeadline())
+                .map(Task::getDeadline)
                 .collect(Collectors.toList());
         System.out.println(currentDeadlines);
     }
