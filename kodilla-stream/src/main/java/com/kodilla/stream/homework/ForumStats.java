@@ -2,13 +2,15 @@ package com.kodilla.stream.homework;
 
 import com.kodilla.stream.UsersRepository;
 
+import java.util.OptionalDouble;
+
 public class ForumStats {
     public static void main(String[] args) {
-        double avg = UsersRepository.getUsersList()
+        Double avg = UsersRepository.getUsersList()
                 .stream()
                 .filter(u -> u.getAge()>=40)
                 .map(u -> u.getNumberOfPost())
-                .mapToInt(n -> n)
+                .mapToDouble(n -> n)
                 .average()
                 .getAsDouble();
         System.out.println("Average number of posts by users aged 40+: " + avg);
@@ -17,7 +19,7 @@ public class ForumStats {
                 .stream()
                 .filter(u -> u.getAge()<40)
                 .map(u -> u.getNumberOfPost())
-                .mapToInt(n -> n)
+                .mapToDouble(n -> n)
                 .average()
                 .getAsDouble();
         System.out.println("Average number of posts by users under 40: " + avg);
