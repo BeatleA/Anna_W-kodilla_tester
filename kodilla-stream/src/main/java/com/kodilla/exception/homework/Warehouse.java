@@ -12,12 +12,11 @@ public class Warehouse {
     }
 
     public Order getOrder(String number) throws OrderDoesntExistException {
-        Optional<Order> order = orders
+        Order order = orders
                 .stream()
                 .filter(o -> o.getNumber().equals(number))
-                .findAny();
-        if (order.isPresent())
-            return order.get();
-        throw new OrderDoesntExistException();
+                .findAny()
+                .orElseThrow(() -> new OrderDoesntExistException());
+        return order;
     }
 }
