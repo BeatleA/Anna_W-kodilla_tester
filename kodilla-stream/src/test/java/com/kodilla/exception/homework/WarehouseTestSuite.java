@@ -2,7 +2,6 @@ package com.kodilla.exception.homework;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -27,31 +26,21 @@ class WarehouseTestSuite {
                  "Expected behaviour: exception OrderDoesntExistException thrown")
     @Test
     public void testGetOrder_noOrders_withException() throws OrderDoesntExistException {
-
-        assertThrows(OrderDoesntExistException.class, new Executable() {
-
-            @Override
-            public void execute() throws Throwable {
-                Warehouse warehouse = new Warehouse();
-                Order order = warehouse.getOrder("9");
-            }
-        });
+        // given
+        Warehouse warehouse = new Warehouse();
+        // then
+        assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("9"));
     }
 
     @DisplayName("State under test: order added, different order requested from getOrder() " +
                  "Expected behaviour: exception OrderDoesntExistException thrown")
     @Test
     public void testGetOrder_withException() throws OrderDoesntExistException {
-
-        assertThrows(OrderDoesntExistException.class, new Executable() {
-
-            @Override
-            public void execute() throws Throwable {
-                Warehouse warehouse = new Warehouse();
-                warehouse.addOrder(new Order("10"));
-                Order order = warehouse.getOrder("9");
-            }
-        });
+        // given
+        Warehouse warehouse = new Warehouse();
+        // when
+        warehouse.addOrder(new Order("10"));
+        // then
+        assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("9"));
     }
-
 }
