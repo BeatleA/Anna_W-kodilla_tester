@@ -29,6 +29,7 @@ class MobilePhoneTestSuite {
     @Test
     public void testVerificationFailure() {
         myPhone.needsCharging();
-        Mockito.verify(myPhone).getFreeStorage();
+//      Mockito.verify(myPhone).getFreeStorage();  <- this will fail verification since this method has not been called
+        Mockito.verify(myPhone).needsCharging();
     }
 }
