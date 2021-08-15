@@ -23,12 +23,11 @@ public class WalletSteps implements En {
             answer = cashier.withdraw(wallet, amount);
         });
 
-        Then("${int} should be dispensed. I should be told {string}", (Integer amount, String string) -> {
+        Then("${int} should be dispensed", (Integer amount) -> {
             Assert.assertEquals((int) amount, cashSlot.getContents());
-            Assert.assertEquals(string, this.answer);
         });
 
-        Then("Nothing should be dispensed. I should be told {string}", (String string) -> {
+        Then("Answer should be {string}", (String string) -> {
             Assert.assertEquals(string, this.answer);
         });
     }

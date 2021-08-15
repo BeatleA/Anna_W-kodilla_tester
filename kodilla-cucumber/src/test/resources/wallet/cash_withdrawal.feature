@@ -2,7 +2,8 @@ Feature: Cash Withdrawal
   Scenario Outline: Successful withdrawal from a wallet in credit
     Given I have deposited $<deposit> in my wallet
     When I request $<withdrawal>
-    Then $<withdrawal> should be dispensed. I should be told "Successful withdrawal"
+    Then $<withdrawal> should be dispensed
+    And Answer should be "Successful withdrawal"
     Examples:
     | deposit | withdrawal |
     | 200 | 30 |
@@ -13,7 +14,7 @@ Feature: Cash Withdrawal
   Scenario Outline: Unsuccessful withdrawal from a wallet in credit
     Given I have deposited $<deposit> in my wallet
     When I request $<withdrawal>
-    Then Nothing should be dispensed. I should be told <answer>
+    Then Answer should be <answer>
     Examples:
       | deposit | withdrawal | answer |
       | 200 | 300 | "Insufficient balance" |
@@ -24,7 +25,7 @@ Feature: Cash Withdrawal
   Scenario Outline: Unsuccessful withdrawal from a wallet not in credit
     Given I have not deposited anything in my wallet
     When I request $<withdrawal>
-    Then Nothing should be dispensed. I should be told "Insufficient balance"
+    Then Answer should be "Insufficient balance"
     Examples:
       | withdrawal |
       | 30 |
