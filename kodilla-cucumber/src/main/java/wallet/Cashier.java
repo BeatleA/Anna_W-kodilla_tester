@@ -13,6 +13,7 @@ public class Cashier {
         } else if (amount > wallet.getBalance()) {
             return "Insufficient balance";
         } else {
+            wallet.debit(amount);
             cashSlot.dispense(amount);
             return "Successful withdrawal";
         }

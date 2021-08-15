@@ -27,8 +27,12 @@ public class WalletSteps implements En {
             Assert.assertEquals((int) amount, cashSlot.getContents());
         });
 
+        Then("the balance of my wallet should be {int}", (Integer balance) -> {
+            Assert.assertEquals("Incorrect wallet balance", (int) balance,  wallet.getBalance());
+        });
+
         Then("Answer should be {string}", (String string) -> {
-            Assert.assertEquals(string, this.answer);
+            Assert.assertEquals("Incorrect answer", string, this.answer);
         });
     }
 }

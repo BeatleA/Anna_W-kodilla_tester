@@ -3,13 +3,14 @@ Feature: Cash Withdrawal
     Given I have deposited $<deposit> in my wallet
     When I request $<withdrawal>
     Then $<withdrawal> should be dispensed
+    And the balance of my wallet should be <balance>
     And Answer should be "Successful withdrawal"
     Examples:
-    | deposit | withdrawal |
-    | 200 | 30 |
-    | 350 | 140 |
-    | 300 | 300 |
-    | 10 | 9 |
+    | deposit | withdrawal | balance |
+    | 200 | 30 | 170 |
+    | 350 | 140 | 210 |
+    | 300 | 300 | 0 |
+    | 10 | 9 | 1 |
 
   Scenario Outline: Unsuccessful withdrawal from a wallet in credit
     Given I have deposited $<deposit> in my wallet
@@ -19,8 +20,8 @@ Feature: Cash Withdrawal
       | deposit | withdrawal | answer |
       | 200 | 300 | "Insufficient balance" |
       | 200 | 201 | "Insufficient balance" |
-      | 10 | -1 | "Incorrect amount"              |
-      | 100 | 0  | "Incorrect amount"             |
+      | 10 | -1 | "Incorrect amount" |
+      | 100 | 0  | "Incorrect amount" |
 
   Scenario Outline: Unsuccessful withdrawal from a wallet not in credit
     Given I have not deposited anything in my wallet
