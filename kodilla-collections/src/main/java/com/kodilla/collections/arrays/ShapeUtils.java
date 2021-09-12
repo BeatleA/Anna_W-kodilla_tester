@@ -9,8 +9,8 @@ public class ShapeUtils {
     public static void displayShapeInfo(Shape shape) {
         System.out.println("-----------------------------");
         System.out.println("Shape kind: " + getShapeName(shape));
-        System.out.println("Shape area: " + shape.getArea());
-        System.out.println("Shape perimeter: " + shape.getPerimeter());
+        System.out.println("Shape area: " + String.format("%.2f", shape.getArea()));
+        System.out.println("Shape perimeter: " + String.format("%.2f", shape.getPerimeter()));
     }
 
     private static String getShapeName(Shape shape) {
