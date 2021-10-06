@@ -4,4 +4,4 @@ This repository contains work I have done during Kodilla Automation Tester ISTQB
 
 https://kodilla.com/pl/bootcamp/tester-automatyzujacy
 
-It includes Spring Boot, REST API, Selenium WebDriver, Cucumber/Gherkin, SQL, SOAP, Java, JUnit and Mockito.
+Technologies and languages covered by the course included Git, Spring Boot, REST API, Selenium WebDriver, Cucumber/Gherkin, SQL, SOAP, Java, JUnit and Mockito.
